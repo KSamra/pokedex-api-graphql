@@ -5,6 +5,8 @@ const {colors} = require('colors');
 const resolvers = require('./src/resolvers');
 const typeDefs = require('./src/schema');
 
+const {Pokemon} = require('./src/models/Pokemon');
+
 const createServer = async ({typeDefs, resolvers, dataSources}) => {
   try {
     const server = new ApolloServer({

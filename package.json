@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KSamra/pokedex-api-graphql#readme",
   "dependencies": {
+    "apollo-datasource": "^0.7.0",
     "apollo-server": "^2.10.1",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
