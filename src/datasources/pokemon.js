@@ -14,7 +14,13 @@ class PokemonAPI extends DataSource {
   }
 
   async getAllPokemon(){
-    const all = await this.store.find();
+    try {
+      const allPokemon = await this.store.find();
+      return Array.isArray(allPokemon) ? allPokemon : []
+    } catch (error) {
+      console.error(error);
+      return []
+    }
   }
 
   async getPokemonById({id}) {
@@ -24,6 +30,7 @@ class PokemonAPI extends DataSource {
     } catch (error) {
       console.error(`Unable to find pokemon of id ${id}`);
       console.error(error);
+      return {}
     }
   }
 
