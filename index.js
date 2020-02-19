@@ -11,7 +11,7 @@ const typeDefs = require('./src/schema');
 const {createModel} = require('./src/models/Pokemon');
 const PokemonAPI = require('./src/datasources/pokemon');
 
-const Pokemon = createModel();
+const store = createModel();
 
 
 const createServer = async () => {
@@ -19,12 +19,12 @@ const createServer = async () => {
     const server = new ApolloServer({
       typeDefs,
       resolvers,
-      // dataSources: () => ({
-      //   pokemonAPI: new PokemonAPI({Pokemon})
-      // })
-      context: () => {
-        return {models: {Pokemon}}
-      }
+      dataSources: () => ({
+        pokemonAPI: new PokemonAPI({store})
+      })
+      // context: () => {
+      //   return {models: {store}}
+      // }
     });
     const {url} = await server.listen();
     console.log(`🚀  Server ready at ${url}`.green);

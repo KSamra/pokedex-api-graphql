@@ -21,11 +21,10 @@ class PokemonAPI extends DataSource {
     try {
       console.log(`Received id argument = ${id}`.yellow);
       
-      //const poke = await this.store.findById(id);
+      const poke = await this.store.findById(id);
       // console.log(typeof (poke));
-      // console.log(poke);
-      console.log(this.store);
-      console.log(typeof(this.store));
+      console.log(poke);
+      
       return "Testing"
     } catch (error) {
       console.error(`Unable to find pokemon of id ${id}`);
