@@ -1,0 +1,27 @@
+{
+  "name": "pokedex-api-graphql",
+  "version": "1.0.0",
+  "description": "A public API to query information on all existing Pokemon. Built with Apollo Server and graphql.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KSamra/pokedex-api-graphql.git"
+  },
+  "author": "Kavan Samra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KSamra/pokedex-api-graphql/issues"
+  },
+  "homepage": "https://github.com/KSamra/pokedex-api-graphql#readme",
+  "dependencies": {
+    "apollo-server": "^2.10.1",
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "graphql": "^14.6.0",
+    "mongoose": "^5.9.1",
+    "nodemon": "^2.0.2"
+  }
+}
