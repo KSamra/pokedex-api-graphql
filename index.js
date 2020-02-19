@@ -3,7 +3,7 @@ const { ApolloServer } = require('apollo-server');
 const {colors} = require('colors');
 
 const dotenv = require('dotenv');
-dotenv.config({path: './config/config.env'});
+dotenv.config({path: './config.env'});
 
 const resolvers = require('./src/resolvers');
 const typeDefs = require('./src/schema');
