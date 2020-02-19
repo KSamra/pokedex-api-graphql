@@ -6,6 +6,7 @@ const resolvers = require('./src/resolvers');
 const typeDefs = require('./src/schema');
 
 const {Pokemon} = require('./src/models/Pokemon');
+const PokemonAPI = require('./src/datasources/pokemon');
 
 const createServer = async ({typeDefs, resolvers, dataSources}) => {
   try {
@@ -13,7 +14,7 @@ const createServer = async ({typeDefs, resolvers, dataSources}) => {
       typeDefs,
       resolvers,
       dataSources: () => ({
-        pokemonAPI: {}
+        pokemonAPI: new PokemonAPI({Pokemon})
       })
     });
     const {url} = await server.listen();
