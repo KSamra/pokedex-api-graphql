@@ -8,17 +8,23 @@ dotenv.config({path: './config/config.env'});
 const resolvers = require('./src/resolvers');
 const typeDefs = require('./src/schema');
 
-const {Pokemon} = require('./src/models/Pokemon');
+const {createModel} = require('./src/models/Pokemon');
 const PokemonAPI = require('./src/datasources/pokemon');
+
+const Pokemon = createModel();
+
 
 const createServer = async () => {
   try {
     const server = new ApolloServer({
       typeDefs,
       resolvers,
-      dataSources: () => ({
-        pokemonAPI: new PokemonAPI({Pokemon})
-      })
+      // dataSources: () => ({
+      //   pokemonAPI: new PokemonAPI({Pokemon})
+      // })
+      context: () => {
+        return {models: {Pokemon}}
+      }
     });
     const {url} = await server.listen();
     console.log(`🚀  Server ready at ${url}`.green);
