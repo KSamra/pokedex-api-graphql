@@ -19,13 +19,8 @@ class PokemonAPI extends DataSource {
 
   async getPokemonById({id}) {
     try {
-      console.log(`Received id argument = ${id}`.yellow);
-      
       const poke = await this.store.findById(id);
-      // console.log(typeof (poke));
-      console.log(poke);
-      
-      return "Testing"
+      return poke;
     } catch (error) {
       console.error(`Unable to find pokemon of id ${id}`);
       console.error(error);
