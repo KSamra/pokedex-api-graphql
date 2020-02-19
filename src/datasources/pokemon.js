@@ -9,6 +9,12 @@ class PokemonAPI extends DataSource {
   initialize(config){
     this.context = config.context;
   }
+
+  async getAllPokemon(){
+    
+  }
+
+
 }
 
 module.exports = PokemonAPI;

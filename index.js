@@ -2,13 +2,16 @@ const {connectDB} = require('./src/db/db');
 const { ApolloServer } = require('apollo-server');
 const {colors} = require('colors');
 
+const dotenv = require('dotenv');
+dotenv.config({path: './config/config.env'});
+
 const resolvers = require('./src/resolvers');
 const typeDefs = require('./src/schema');
 
 const {Pokemon} = require('./src/models/Pokemon');
 const PokemonAPI = require('./src/datasources/pokemon');
 
-const createServer = async ({typeDefs, resolvers, dataSources}) => {
+const createServer = async () => {
   try {
     const server = new ApolloServer({
       typeDefs,

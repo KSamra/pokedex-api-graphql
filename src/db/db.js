@@ -10,9 +10,9 @@ const connectDB = async () => {
       useNewUrlParser: true,
       autoIndex: false
     });
-    console.log(`MongoDB connected: ${connect.connection.host}`);
+    console.log(`MongoDB connected: ${connect.connection.host}`.cyan);
   } catch (error) {
-    console.log(error);
+    console.error(`error`.red);
   }
 };
 
