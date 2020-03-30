@@ -13,10 +13,10 @@ class PokemonAPI extends DataSource {
     this.context = config.context;
   }
 
-  async getAllPokemon(){
+  async getAllPokemon(limit, after){
     try {
-      const allPokemon = await this.store.find();
-      return Array.isArray(allPokemon) ? allPokemon : []
+      const allPokemon = await this.store.find().skip(after).limit(limit);
+      return Array.isArray(allPokemon) ? allPokemon : [];
     } catch (error) {
       console.error(error);
       return []
