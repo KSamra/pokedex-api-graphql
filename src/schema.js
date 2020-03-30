@@ -4,7 +4,10 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
   type Query {
     hello: String 
-    pokemons: [Pokemon]!
+    pokemons(
+      pageSize: Int
+      offset: Int
+    ): PokemonConnection!
     pokemon(id: Int!): Pokemon
   }
 
@@ -52,6 +55,12 @@ const typeDefs = gql`
     weight_kg: Int
     generation: Int
     is_legendary: Int
+  }
+
+  type PokemonConnection {
+    hasMore: Boolean!
+    offset: Int!
+    pokemons: [Pokemon]!
   }
 
 `;
