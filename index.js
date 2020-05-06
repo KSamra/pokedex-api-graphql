@@ -1,5 +1,6 @@
 const {connectDB} = require('./src/db/db');
 const { ApolloServer } = require('apollo-server');
+
 const {colors} = require('colors');
 
 const dotenv = require('dotenv');
