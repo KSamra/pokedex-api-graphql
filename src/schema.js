@@ -7,8 +7,11 @@ const typeDefs = gql`
     pokemons(
       pageSize: Int
       offset: Int
-    ): PokemonConnection!
-    pokemon(id: Int!): Pokemon
+    ):PokemonConnection!
+    pokemon(
+      id: Int
+      name: String
+     ):Pokemon
   }
 
   type Pokemon {

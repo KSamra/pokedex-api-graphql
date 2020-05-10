@@ -23,12 +23,23 @@ class PokemonAPI extends DataSource {
     }
   }
 
-  async getPokemonById({id}) {
+  async getPokemonById({id, name}) {
     try {
-      const poke = await this.store.findById(id);
-      return poke;
+      let pokemon = {};
+      console.log(`received arguments ${id} and ${name}`);
+      if (id){
+        pokemon = await this.store.findById(id);
+        return pokemon;
+      }
+      if (name){
+        let first = name.slice(0,1).toUpperCase();
+        let rest = name.slice(1).toLowerCase();
+        let query = first + rest; 
+        pokemon = await this.store.findOne({'name': query});
+      } 
+      return pokemon;
     } catch (error) {
-      console.error(`Unable to find pokemon of id ${id}`);
+      console.error(`Unable to find pokemon of id ${id} or name=${name}`);
       console.error(error);
       return {}
     }
